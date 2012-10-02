@@ -1,4 +1,8 @@
 
+/**
+ * @author berardk
+ * Coordonnées qui seront utilisées pour les positions du serpent et de la pastille. 
+ */
 public class Coordonnees
 {
 	private final int abscisse;
@@ -14,6 +18,10 @@ public class Coordonnees
 
 
 
+	/**
+	 * @return
+	 * Retourne l'abscisse de l'objet
+	 */
 	public int getAbscisse()
 	{
 		return abscisse;
@@ -21,6 +29,10 @@ public class Coordonnees
 
 
 
+	/**
+	 * @return
+	 * Retourne l'ordonnée de l'objet
+	 */
 	public int getOrdonnee()
 	{
 		return ordonnee;
