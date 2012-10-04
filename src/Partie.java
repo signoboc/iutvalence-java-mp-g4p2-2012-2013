@@ -1,18 +1,21 @@
 // FIXME déplacer dans un paquetage
-// FIXME corriger le commentaire
 /**
  * @author berardk
- * Classe qui gère une partie du jeu
+ * Classe : Partie (gère une partie du jeu)
+ * @param : nomJoueur : Désigne le nom du joueur.
+ * @param : scoreJoueur : Désigne le score du joueur. 
  */
 public class Partie
 {
-	// FIXME respecter les conventions d'écriture
-	// FIXME écrire un commentaire
-	private String nom_joueur ;
+	/**
+	 * Désigne le nom du joueur.
+	 */
+	private String nomJoueur ;
 	
-	// FIXME respecter les conventions d'écriture
-	// FIXME écrire un commentaire
-	private int score_joueur ;	
+	/**
+	 * Désigne le score du joueur.
+	 */
+	private int scoreJoueur ;	
 	
 	// FIXME (autres) attributs, constructeurs, méthodes ?
 }

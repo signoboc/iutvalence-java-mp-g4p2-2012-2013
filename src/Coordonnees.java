@@ -1,18 +1,32 @@
 // FIXME déplacer dans un paquetage
-// FIXME corriger le commentaire
 /**
  * @author berardk
- * Coordonnées qui seront utilisées pour les positions du serpent et de la pastille. 
+ * Classe : Coordonnées (couple abscisse/ordonnee)
+ * 
+ * @param abscisse : Abscisse d'un point dans le plan
+ * @param ordonnee : Ordonnée d'un point dans le plan
+ * 
+ * Ces coordonnées seront utilisées pour les positions du serpent et de la pastille. 
  */
 public class Coordonnees
-{	
-	// FIXME écrire un commentaire  
+{  
+	/**
+	 * Désigne l'abscisse d'un point dans le plan
+	 */
 	private final int abscisse;
 
-	// FIXME écrire un commentaire
+	/**
+	 * Désigne l'ordonnée d'un point dans le plan
+	 */
 	private final int ordonnee;
 	
-	// FIXME écrire un commentaire
+	/**
+	 * Coordonnées d'un point dans le plan
+	 * @param abscisse
+	 * 				Abscisse d'un point dans le plan
+	 * @param ordonnee
+	 * 				Ordonnée d'un point dans le plan
+	 */
 	public Coordonnees(int abscisse, int ordonnee)
 	{
 		super();
@@ -21,20 +35,19 @@ public class Coordonnees
 	}
 
 
-	// FIXME corriger le commentaire
 	/**
-	 * @return
-	 * Retourne l'abscisse de l'objet
+	 * Permet d'accéder à l'abscisse d'un point n'importe où dans l'application
+	 * @return abscisse d'un point dans le plan
 	 */
 	public int getAbscisse()
 	{
 		return abscisse;
 	}
 
-	// FIXME corriger le commentaire
+
 	/**
-	 * @return
-	 * Retourne l'ordonnée de l'objet
+	 * Permet d'accéder à l'ordonnée d'un point n'importe où dans l'application
+	 * @return ordonnee d'un point dans le plan
 	 */
 	public int getOrdonnee()
 	{
@@ -44,11 +57,41 @@ public class Coordonnees
 
 
 	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + abscisse;
+		result = prime * result + ordonnee;
+		return result;
+	}
+
+
+	/**
+	 * Redéfinition de equals pour comparer des coordonnées.
+	 * 		Deux coordonnées sont égales si les deux abscisses et les deux ordonnées
+	 * 		sont égales.
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Coordonnees)) 
+			return false;
+		Coordonnees other = (Coordonnees) obj;
+		if (this.abscisse != other.abscisse)
+			return false;
+		return (this.ordonnee == other.ordonnee);
+	}
+
+
+	@Override
 	public String toString()
 	{
 		return "Coordonnees [abscisse=" + abscisse + ", ordonnee=" + ordonnee + "]";
 	}
-
-	
-	// FIXME redéfinir equals et hashCode
 }

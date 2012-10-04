@@ -1,22 +1,32 @@
 // FIXME déplacer dans un paquetage
-// FIXME corriger le commentaire
+/**
+ * @author berardk
+ * Classe Serpent
+ * 
+ * @param longueur : Désigne le nombre d'élément qui constitue le serpent à l'état initial
+ * @param absInit : Désigne l'abscisse initiale de la tête du serpent sur le terrain.
+ * @param ordInit : Désigne l'ordonnée initiale de la tête du serpent sur le terrain.
+ */
 public class Serpent
 {
-	// FIXME corriger le commentaire
 	/**
-	 * Nombre d'éléments qui constituent le serpent
+	 * Nombre d'éléments qui constituent le serpent à l'état initial.
 	 */
 	// FIXME respecter la syntaxe Javadoc
 	// FIXME initialiser l'attribut dans le constructeur
-	private int longueur = 4 ;		// Longueur initiale du serpent.
+	private int longueur;
 
-	// FIXME respecter la syntaxe Javadoc
-	// FIXME initialiser l'attribut dans le constructeur
-	private int abs_init = 1 ;		// Abscisse initiale du serpent.
+    //private Coordonnees depart; 
+
+	public Serpent(Coordonnees depart)
+	{
+		super();
+		this.longueur = 4;
+		this.absInit = absInit;
+		this.ordInit = ordInit;
+	}
 	
-	// FIXME respecter la syntaxe Javadoc
-	// FIXME initialiser l'attribut dans le constructeur
-	private int ord_init = 1 ;		// Ordonnee initiale du serpent.
+
 	
 	// FIXME constructeurs, méthodes ?
 }

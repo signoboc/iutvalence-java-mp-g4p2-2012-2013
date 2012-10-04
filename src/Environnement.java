@@ -1,40 +1,41 @@
+import java.util.Arrays;
+
 // FIXME déplacer dans un paquetage
-// FIXME corriger le commentaire
 /**
  * @author berardk
- * L'environnement du jeu
+ * Classe Environnement (tableau définissant le terrain)
+ * @param grille : tableau a deux dimensions (tailleGrille*tailleGrille)
+ * @param abscissePastille : Abscisse de la pastille dans le plan.
+ * @param ordonneePastille : Ordonnée de la pastille dans le plan.
  */
 public class Environnement
 {
-	// FIXME respecter les conventions d'écriture
-	// FIXME écrire un commentaire
-	private int abscisse_pastille;
-
-	// FIXME respecter les conventions d'écriture
-	// FIXME écrire un commentaire
-	private int ordonnee_pastille;
-	
-	// FIXME respecter la syntaxe Javadoc
-	// FIXME préciser quel peut être le contenu des cases du tableau, définir des constantes
-	private int[][] grille;					// Taille du tableau (Carte du jeu)
-	
-	
-	// FIXME corriger le commentaire
-	// FIXME vérifier que taille est réaliste (définir des constantes pour les bornes min/max, soulever une exception en cas de non respect des bornes	
 	/**
-	 * @param taille
-	 * Initialise la taille du terrain de jeu (un carré de côté taille)
+	 * Désigne l'abscisse de la pastille dans le terrain.
 	 */
-	public Environnement(int taille)
-	{
-		super();
-		this.grille = new int[taille][taille];
-		
-		// FIXME tous les attributs doivent être initialisés (c'est mieux)
-	}
+	private int abscissePastille;
 
+	/**
+	 * Désigne l'ordonnée de la pastille dans le terrain.
+	 */
+	private int ordonneePastille;
 	
-	// FIXME redéfinir la méthode toString pour avoir une représentation en ASCII-art de la grille
+	/**
+	 * Désigne une valeur de la taille du terrain de jeu.
+	 */
+	private final int tailleGrille = 20 ;
+	
+	/**
+	 * Désigne la taille du tableau qui sera le terrain de jeu.
+	 * Une grille contient un serpent et une pastille.
+	 */
+	private int grille[][] = new int[tailleGrille][tailleGrille];
 
+	@Override
+	public String toString()
+	{
+		return "Environnement [tailleGrille=" + tailleGrille + ", grille=" + Arrays.toString(grille) + "]";
+	}
+	
 	// FIXME autres méthodes ? 
 }
