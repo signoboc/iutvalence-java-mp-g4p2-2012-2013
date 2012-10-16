@@ -46,7 +46,7 @@ public class Coordonnees
 	 */
 	public int getAbscisse()
 	{
-		return abscisse;
+		return this.abscisse;
 	}
 
 
@@ -56,7 +56,7 @@ public class Coordonnees
 	 */
 	public int getOrdonnee()
 	{
-		return ordonnee;
+		return this.ordonnee;
 	}
 
 
@@ -66,8 +66,8 @@ public class Coordonnees
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + abscisse;
-		result = prime * result + ordonnee;
+		result = prime * result + this.abscisse;
+		result = prime * result + this.ordonnee;
 		return result;
 	}
 
@@ -93,12 +93,13 @@ public class Coordonnees
 		return (this.ordonnee == other.ordonnee);
 	}
 
-
 	@Override
 	public String toString()
 	{
-		return "Coordonnees [abscisse=" + abscisse + ", ordonnee=" + ordonnee + "]";
+		return "Coordonnees [abscisse=" + this.abscisse + ", ordonnee=" + this.ordonnee + "]";
 	}
-	
+
+
+
 	// FIXME écrire une application de test basique pour cette classe
 }

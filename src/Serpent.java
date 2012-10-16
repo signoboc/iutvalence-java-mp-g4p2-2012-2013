@@ -36,17 +36,6 @@ public class Serpent
      * Coordonnées qui indique la position du serpent
      */
     private Coordonnees position; 
-
-
-	/**
-	 * Initialise le serpent avec les valeurs (longueur et position) par défaut.
-	 */
-	public Serpent()
-	{
-		super();
-		this.longueur = LONGUEUR;
-		this.position = new Coordonnees(ABS_INIT,ORD_INIT);
-	}
 	
 	/**
 	 * Initialise le serpent avec une position donnée et une longueur par défaut.
@@ -58,18 +47,7 @@ public class Serpent
 		this.longueur = LONGUEUR;
 		this.position = depart;
 	}
-	
-	/**
-	 * Initialise le serpent avec une longueur donnée et une position par défaut.
-	 * @param longueur : longueur initiale du corps du serpent
-	 */
-	public Serpent(int longueur)
-	{
-		super();
-		this.longueur = longueur;
-		this.position = new Coordonnees(ABS_INIT,ORD_INIT);
-	}
-	
+		
 	/**
 	 * Initialise le serpent avec une longueur et une position données.
 	 * @param longueur : longueur initiale du corps du serpent
