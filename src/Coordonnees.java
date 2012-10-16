@@ -1,4 +1,7 @@
 // FIXME déplacer dans un paquetage
+
+
+// FIXME corriger le commentaire (les balises @param ne s'appliquent pas ici)
 /**
  * @author berardk
  * Classe : Coordonnées (couple abscisse/ordonnee)
@@ -20,6 +23,8 @@ public class Coordonnees
 	 */
 	private final int ordonnee;
 	
+	
+	// FIXME corriger le commentaire (indiquer dans quel état est l'objet créé)
 	/**
 	 * Coordonnées d'un point dans le plan
 	 * @param abscisse
@@ -34,6 +39,7 @@ public class Coordonnees
 		this.ordonnee = ordonnee;
 	}
 
+	// FIXME corriger le commentaire (on ne parle pas d'un point mais DU point)
 
 	/**
 	 * Permet d'accéder à l'abscisse d'un point n'importe où dans l'application
@@ -94,4 +100,6 @@ public class Coordonnees
 	{
 		return "Coordonnees [abscisse=" + abscisse + ", ordonnee=" + ordonnee + "]";
 	}
+	
+	// FIXME écrire une application de test basique pour cette classe
 }

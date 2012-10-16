@@ -23,14 +23,22 @@ public class Environnement
 	/**
 	 * Désigne une valeur de la taille du terrain de jeu.
 	 */
+	// FIXME si c'est une constante, la déclarer comme une constante. Sinon, initialisation dans le constructeur
 	private final int tailleGrille = 20 ;
 	
+	
+	// FIXME corriger le commentaire (ce n'est pas une taille)
+	// FIXME initialisation dans le constructeur
 	/**
 	 * Désigne la taille du tableau qui sera le terrain de jeu.
 	 * Une grille contient un serpent et une pastille.
 	 */
 	private int grille[][] = new int[tailleGrille][tailleGrille];
 
+	
+	// FIXME definir une constructeur
+	
+	
 	@Override
 	public String toString()
 	{
