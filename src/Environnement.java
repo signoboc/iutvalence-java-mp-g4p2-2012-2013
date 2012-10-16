@@ -1,49 +1,63 @@
 import java.util.Arrays;
+import java.util.Random;
 
 // FIXME déplacer dans un paquetage
 /**
  * @author berardk
  * Classe Environnement (tableau définissant le terrain)
- * @param grille : tableau a deux dimensions (tailleGrille*tailleGrille)
- * @param abscissePastille : Abscisse de la pastille dans le plan.
- * @param ordonneePastille : Ordonnée de la pastille dans le plan.
+ * grille : tableau a deux dimensions (tailleGrille*tailleGrille)
+ * abscissePastille : Abscisse de la pastille dans le plan.
+ * ordonneePastille : Ordonnée de la pastille dans le plan.
  */
 public class Environnement
-{
+{	
 	/**
-	 * Désigne l'abscisse de la pastille dans le terrain.
+	 * Désigne la position de la pastille
 	 */
-	private int abscissePastille;
-
-	/**
-	 * Désigne l'ordonnée de la pastille dans le terrain.
-	 */
-	private int ordonneePastille;
+	private Coordonnees positionPastille;
+	
 	
 	/**
 	 * Désigne une valeur de la taille du terrain de jeu.
 	 */
-	// FIXME si c'est une constante, la déclarer comme une constante. Sinon, initialisation dans le constructeur
-	private final int tailleGrille = 20 ;
+
+	public final static int TAILLEGRILLE = 20 ;
 	
 	
-	// FIXME corriger le commentaire (ce n'est pas une taille)
-	// FIXME initialisation dans le constructeur
+	// FIXME corriger le commentaire (ce n'est pas une taille) (FIXED)
+	// FIXME initialisation dans le constructeur (FIXED)
 	/**
-	 * Désigne la taille du tableau qui sera le terrain de jeu.
+	 * Désigne le tableau qui sera le terrain de jeu.
 	 * Une grille contient un serpent et une pastille.
 	 */
-	private int grille[][] = new int[tailleGrille][tailleGrille];
+	private int grille[][];
 
 	
-	// FIXME definir une constructeur
+	// FIXME definir un constructeur (FIXED)
+	/**
+	 * Constructeur de l'environnement de jeu
+	 * Initialise le terrain avec une pastille positionnée aléatoirement (grâce à la
+	 * fonction Random().nextInt.
+	 * La taille de la grille est fixée par la constante TAILLEGRILLE.
+	 */
+	public Environnement()
+	{
+		super();
+		int abs = new Random().nextInt(TAILLEGRILLE + 1);
+		int ord = new Random().nextInt(TAILLEGRILLE + 1);
+		this.positionPastille = new Coordonnees(abs,ord);
+		this.grille = new int[TAILLEGRILLE][TAILLEGRILLE];
+	}
+	
 	
 	
 	@Override
 	public String toString()
 	{
-		return "Environnement [tailleGrille=" + tailleGrille + ", grille=" + Arrays.toString(grille) + "]";
+		return "Environnement [TAILLEGRILLE=" + TAILLEGRILLE + ", grille=" + Arrays.toString(this.grille) + "]";
 	}
-	
+
+
+
 	// FIXME autres méthodes ? 
 }

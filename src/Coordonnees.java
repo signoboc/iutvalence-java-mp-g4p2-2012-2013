@@ -1,13 +1,12 @@
 // FIXME déplacer dans un paquetage
 
 
-// FIXME corriger le commentaire (les balises @param ne s'appliquent pas ici)
 /**
  * @author berardk
  * Classe : Coordonnées (couple abscisse/ordonnee)
  * 
- * @param abscisse : Abscisse d'un point dans le plan
- * @param ordonnee : Ordonnée d'un point dans le plan
+ * abscisse : Abscisse d'un point dans le plan
+ * ordonnee : Ordonnée d'un point dans le plan
  * 
  * Ces coordonnées seront utilisées pour les positions du serpent et de la pastille. 
  */
@@ -39,11 +38,11 @@ public class Coordonnees
 		this.ordonnee = ordonnee;
 	}
 
-	// FIXME corriger le commentaire (on ne parle pas d'un point mais DU point)
+	// FIXME corriger le commentaire (on ne parle pas d'un point mais DU point) (FIXED)
 
 	/**
-	 * Permet d'accéder à l'abscisse d'un point n'importe où dans l'application
-	 * @return abscisse d'un point dans le plan
+	 * Permet d'accéder à l'abscisse du point n'importe où dans l'application
+	 * @return abscisse du point
 	 */
 	public int getAbscisse()
 	{
@@ -52,8 +51,8 @@ public class Coordonnees
 
 
 	/**
-	 * Permet d'accéder à l'ordonnée d'un point n'importe où dans l'application
-	 * @return ordonnee d'un point dans le plan
+	 * Permet d'accéder à l'ordonnée du point n'importe où dans l'application
+	 * @return ordonnee du point
 	 */
 	public int getOrdonnee()
 	{

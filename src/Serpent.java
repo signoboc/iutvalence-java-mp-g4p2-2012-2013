@@ -1,33 +1,85 @@
 // FIXME déplacer dans un paquetage
 
-// FIXME corriger le commentaire (les balises @param ne s'appliquent pas ici)
+
 /**
  * Classe Serpent
  * 
- * @param longueur : Désigne le nombre d'élément qui constitue le serpent à l'état initial
- * @param absInit : Désigne l'abscisse initiale de la tête du serpent sur le terrain.
- * @param ordInit : Désigne l'ordonnée initiale de la tête du serpent sur le terrain.
+ * longueur : Désigne le nombre d'élément qui constitue le serpent à l'état initial
+ * absInit : Désigne l'abscisse initiale de la tête du serpent sur le terrain.
+ * ordInit : Désigne l'ordonnée initiale de la tête du serpent sur le terrain.
  * @author berardk
 
  */
 public class Serpent
 {
+
+	/**
+	 * Constante : Longueur initiale (nombre d'éléments) par défaut du serpent.
+	 */
+	public final static int LONGUEUR = 4;
+	/**
+	 * Constante : Abscisse initiale par défaut de la tête du serpent.
+	 */
+	public final static int ABS_INIT = Environnement.TAILLEGRILLE/2 ;
+	/**
+	 * Constante : Ordonnée initiale par défaut de la tête du serpent.
+	 */
+	public final static int ORD_INIT = Environnement.TAILLEGRILLE/2 ;
+
+	
 	/**
 	 * Nombre d'éléments qui constituent le serpent à l'état initial.
 	 */
 	private int longueur;
+	
+    /**
+     * Coordonnées qui indique la position du serpent
+     */
+    private Coordonnees position; 
 
-    //private Coordonnees depart; 
 
-	// FIXME écrire un commentaire
+	/**
+	 * Initialise le serpent avec les valeurs (longueur et position) par défaut.
+	 */
+	public Serpent()
+	{
+		super();
+		this.longueur = LONGUEUR;
+		this.position = new Coordonnees(ABS_INIT,ORD_INIT);
+	}
+	
+	/**
+	 * Initialise le serpent avec une position donnée et une longueur par défaut.
+	 * @param depart : coordonnées de départ de la tete du serpent
+	 */
 	public Serpent(Coordonnees depart)
 	{
 		super();
-		
-		// FIXME définir la valeur par défaut via une constante
-		this.longueur = 4;
-		this.absInit = absInit;
-		this.ordInit = ordInit;
+		this.longueur = LONGUEUR;
+		this.position = depart;
+	}
+	
+	/**
+	 * Initialise le serpent avec une longueur donnée et une position par défaut.
+	 * @param longueur : longueur initiale du corps du serpent
+	 */
+	public Serpent(int longueur)
+	{
+		super();
+		this.longueur = longueur;
+		this.position = new Coordonnees(ABS_INIT,ORD_INIT);
+	}
+	
+	/**
+	 * Initialise le serpent avec une longueur et une position données.
+	 * @param longueur : longueur initiale du corps du serpent
+	 * @param depart : coordonnées de départ de la tete du serpent
+	 */
+	public Serpent(int longueur, Coordonnees depart)
+	{
+		super();
+		this.longueur = longueur;
+		this.position = depart;
 	}
 	
 
