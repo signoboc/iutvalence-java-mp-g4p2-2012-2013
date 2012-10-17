@@ -1,6 +1,6 @@
 // FIXME déplacer dans un paquetage
 
-
+// FIXME corriger le commentaire (dire à quoi sert cette classe, pas comment elle est faite)
 /**
  * Classe : Partie (gère une partie du jeu)
  * nomJoueur : Désigne le nom du joueur.

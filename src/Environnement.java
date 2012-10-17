@@ -2,12 +2,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 // FIXME déplacer dans un paquetage
+
+// FIXME corriger le commentaire (dire à quoi sert cette classe, pas comment elle est faite)
 /**
- * @author berardk
  * Classe Environnement (tableau définissant le terrain)
  * grille : tableau a deux dimensions (tailleGrille*tailleGrille)
  * abscissePastille : Abscisse de la pastille dans le plan.
  * ordonneePastille : Ordonnée de la pastille dans le plan.
+ * @author berardk
+
  */
 public class Environnement
 {	
@@ -16,7 +19,7 @@ public class Environnement
 	 */
 	private Coordonnees positionPastille;
 	
-	
+	// FIXME déplacer les définitions des constantes avant celles des attributs
 	/**
 	 * Désigne une valeur de la taille du terrain de jeu.
 	 */
@@ -24,16 +27,13 @@ public class Environnement
 	public final static int TAILLEGRILLE = 20 ;
 	
 	
-	// FIXME corriger le commentaire (ce n'est pas une taille) (FIXED)
-	// FIXME initialisation dans le constructeur (FIXED)
 	/**
 	 * Désigne le tableau qui sera le terrain de jeu.
 	 * Une grille contient un serpent et une pastille.
 	 */
-	private int grille[][];
+	private int[][] grille;
 
 	
-	// FIXME definir un constructeur (FIXED)
 	/**
 	 * Constructeur de l'environnement de jeu
 	 * Initialise le terrain avec une pastille positionnée aléatoirement (grâce à la
@@ -50,7 +50,7 @@ public class Environnement
 	}
 	
 	
-	
+	// FIXME il faudrait modifier l'implémentation de toString pour qu'elle retourne une représentation en ascii-art de la grille
 	@Override
 	public String toString()
 	{

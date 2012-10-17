@@ -2,13 +2,14 @@
 
 
 /**
- * @author berardk
- * Classe : Coordonnées (couple abscisse/ordonnee)
+ *  Classe : Coordonnées (couple abscisse/ordonnee)
  * 
  * abscisse : Abscisse d'un point dans le plan
  * ordonnee : Ordonnée d'un point dans le plan
  * 
  * Ces coordonnées seront utilisées pour les positions du serpent et de la pastille. 
+ * @author berardk
+ *
  */
 public class Coordonnees
 {  
@@ -37,8 +38,6 @@ public class Coordonnees
 		this.abscisse = abscisse;
 		this.ordonnee = ordonnee;
 	}
-
-	// FIXME corriger le commentaire (on ne parle pas d'un point mais DU point) (FIXED)
 
 	/**
 	 * Permet d'accéder à l'abscisse du point n'importe où dans l'application
@@ -101,5 +100,5 @@ public class Coordonnees
 
 
 
-	// FIXME écrire une application de test basique pour cette classe
+	// FIXME écrire une application de test basique pour cette classe (dans une autre classe)
 }
