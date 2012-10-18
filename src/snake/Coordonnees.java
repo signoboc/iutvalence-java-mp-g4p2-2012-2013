@@ -1,4 +1,5 @@
-// FIXME déplacer dans un paquetage
+package snake;
+// FIXME déplacer dans un paquetage (FIXED)
 
 
 /**
