@@ -69,9 +69,10 @@ public class Environnement
 		this.positionPastille = new Coordonnees(abs,ord);
 		this.grille = new int[TAILLEGRILLE][TAILLEGRILLE];
 		int i = 0 ;
-		int j = 0 ;
+		int j;
 		while (i < TAILLEGRILLE)
 		{
+			j = 0;
 			if ((i == 0)||(i == TAILLEGRILLE - 1))
 			{
 				while (j < TAILLEGRILLE)
@@ -111,21 +112,29 @@ public class Environnement
 	{
 		String res = "";
 		int i = 0 ;
-		int j = 0 ;
+		int j;
 		while (i < TAILLEGRILLE)
 		{
+			j=0;
 			while (j < TAILLEGRILLE)
 			{
-				if ((j != abs) && (i != ord))
-					
-				else
-					
-				res = res + "0";
+				if (this.grille[i][j] == 0)
+				{
+					res = res + "-";
+				}
+				if (this.grille[i][j] == 8)
+				{
+					res = res + "#";
+				}
+				if (this.grille[i][j] == 2)
+				{
+					res = res + "P";
+				}
 				j++;
 			}
+			res = res + "\n";
 			i++;
 		}
-		
 		
 		return res;
 	}
