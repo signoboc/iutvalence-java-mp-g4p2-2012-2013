@@ -1,13 +1,10 @@
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)
 package snake;
 
-// FIXME déplacer dans un paquetage (FIXED)
 
 /**
- * Classe : Coordonnées (couple abscisse/ordonnee)
+ * Coordonnées (couple abscisse/ordonnee)
  * 
- * abscisse : Abscisse d'un point dans le plan ordonnee : Ordonnée d'un point dans le plan
- * 
- * Ces coordonnées seront utilisées pour les positions du serpent et de la pastille.
  * 
  * @author berardk
  * 
@@ -41,7 +38,7 @@ public class Coordonnees
 	}
 
 	/**
-	 * Permet d'accéder à l'abscisse du point n'importe où dans l'application
+	 * Obtenir l'abscisse du point
 	 * 
 	 * @return abscisse du point
 	 */

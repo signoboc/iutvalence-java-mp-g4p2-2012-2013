@@ -1,24 +1,24 @@
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)
 package snake;
 
-import java.util.Arrays;
 import java.util.Random;
 
-// FIXME déplacer dans un paquetage (FIXED)
-
-// FIXME corriger le commentaire (dire à quoi sert cette classe, pas comment elle est faite) (FIXED)
 /**
- * Classe Environnement Tableau d'entiers à deux dimensions représentant le terrain de jeu, où apparaitra la pastille et
+ * Classe Environnement représentant le terrain de jeu, où évolueront la pastille et
  * le serpent.
  * 
  * @author berardk
  */
 public class Environnement
 {
-	// FIXME déplacer les définitions des constantes avant celles des attributs (FIXED)
+
 	/**
 	 * Désigne une valeur de la taille du terrain de jeu.
 	 */
 	public final static int TAILLEGRILLE = 20;
+
+	
+	// FIXME définir les constantes suivantes via une énumération (à discuter)
 	/**
 	 * Constante : Symbolise une case vide sur le terrain.
 	 */
@@ -98,8 +98,6 @@ public class Environnement
 
 	}
 
-	// FIXME il faudrait modifier l'implémentation de toString pour qu'elle retourne une représentation en ascii-art de
-	// la grille
 	@Override
 	public String toString()
 	{
@@ -111,6 +109,7 @@ public class Environnement
 			j = 0;
 			while (j < TAILLEGRILLE)
 			{
+				// FIXME utiliser les constantes
 				if (this.grille[i][j] == 0)
 				{
 					res = res + "-";

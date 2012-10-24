@@ -1,8 +1,7 @@
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)
 package snake;
 
-// FIXME déplacer dans un paquetage (FIXED)
 
-// FIXME corriger le commentaire (dire à quoi sert cette classe, pas comment elle est faite) (FIXED)
 /**
  * Classe Serpent Désigne le serpent qui représente le personnage principal du jeu.
  * 
@@ -11,24 +10,19 @@ package snake;
 public class Serpent
 {
 
-	// FIXME simplifier le commentaire :"Longueur initiale (nombre d'éléments) par défaut du serpent"
-	// FIXME générer la Javadoc et regarder à quoi elle ressemble
 	/**
-	 * Constante : Longueur initiale (nombre d'éléments) par défaut du serpent.
+	 * Longueur initiale (nombre d'éléments) par défaut du serpent.
 	 */
 	// FIXME renommer la constante (longueur par défaut) (FIXED)
 	public final static int LONGUEUR_INIT = 4;
 
-	// FIXME supprimer cette constante, elles rendent Serpent dépendante de Environnement (FIXED)
-
-	// FIXME supprimer cette constante, elles rendent Serpent dépendante de Environnement (FIXED)
-
-	// FIXME corriger le commentaire (ce n'est pas qu'à l'état initial) (FIXED)
+	// FIXME est-ce que ces 2 attributs suffisent pour placer entièrement le serpent sur un repère ?
+	
 	/**
 	 * Nombre d'éléments qui constituent le serpent
 	 */
 	private int longueur;
-
+	
 	/**
 	 * Position du serpent
 	 */
