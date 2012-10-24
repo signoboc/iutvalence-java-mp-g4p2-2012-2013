@@ -1,83 +1,76 @@
 package snake;
+
 import java.util.Arrays;
 import java.util.Random;
-
 
 // FIXME déplacer dans un paquetage (FIXED)
 
 // FIXME corriger le commentaire (dire à quoi sert cette classe, pas comment elle est faite) (FIXED)
 /**
- * Classe Environnement
- * Tableau d'entiers à deux dimensions représentant le terrain de jeu, où apparaitra
- * la pastille et le serpent. 
+ * Classe Environnement Tableau d'entiers à deux dimensions représentant le terrain de jeu, où apparaitra la pastille et
+ * le serpent.
+ * 
  * @author berardk
-
  */
 public class Environnement
-{	
+{
 	// FIXME déplacer les définitions des constantes avant celles des attributs (FIXED)
 	/**
 	 * Désigne une valeur de la taille du terrain de jeu.
 	 */
-	public final static int TAILLEGRILLE = 20 ;
+	public final static int TAILLEGRILLE = 20;
 	/**
 	 * Constante : Symbolise une case vide sur le terrain.
 	 */
-	public final static int CASE_VIDE = 0 ;
+	public final static int CASE_VIDE = 0;
 	/**
 	 * Constante : Symbolise un mur sur le terrain.
 	 */
-	public final static int MUR = 8 ;
+	public final static int MUR = 8;
 	/**
 	 * Constante : Symbolise la pastille sur le terrain.
 	 */
-	public final static int PASTILLE = 2 ;
+	public final static int PASTILLE = 2;
 	/**
 	 * Constante : Symbolise la tête du serpent sur le terrain.
 	 */
-	public final static int TETE = 5 ;
+	public final static int TETE = 5;
 	/**
 	 * Constante : Symbolise le corps du serpent sur le terrain.
 	 */
-	public final static int CORPS = 6 ;
-	
-	
+	public final static int CORPS = 6;
+
 	/**
 	 * Désigne la position de la pastille
 	 */
 	private Coordonnees positionPastille;
-	
-	
+
 	/**
-	 * Désigne le tableau qui sera le terrain de jeu.
-	 * Une grille contient un serpent et une pastille.
+	 * Désigne le tableau qui sera le terrain de jeu. Une grille contient un serpent et une pastille.
 	 */
 	private int[][] grille;
 
-	
 	/**
-	 * Constructeur de l'environnement de jeu
-	 * Initialise le terrain avec une pastille positionnée aléatoirement (grâce à la
-	 * fonction Random().nextInt.
-	 * La taille de la grille est fixée par la constante TAILLEGRILLE.
+	 * Constructeur de l'environnement de jeu Initialise le terrain avec une pastille positionnée aléatoirement (grâce à
+	 * la fonction Random().nextInt. La taille de la grille est fixée par la constante TAILLEGRILLE.
 	 */
 	public Environnement()
 	{
 		super();
 		int abs = new Random().nextInt(TAILLEGRILLE + 1);
 		int ord = new Random().nextInt(TAILLEGRILLE + 1);
-		this.positionPastille = new Coordonnees(abs,ord);
+		this.positionPastille = new Coordonnees(abs, ord);
 		this.grille = new int[TAILLEGRILLE][TAILLEGRILLE];
-		int i = 0 ;
+		int i = 0;
 		int j;
 		while (i < TAILLEGRILLE)
 		{
 			j = 0;
-			if ((i == 0)||(i == TAILLEGRILLE - 1))
+			if ((i == 0) || (i == TAILLEGRILLE - 1))
 			{
 				while (j < TAILLEGRILLE)
 				{
-					this.grille[i][j]= MUR ;
+					this.grille[i][j] = MUR;
 					j++;
 				}
 				j = 0;
@@ -86,36 +79,36 @@ public class Environnement
 			{
 				while (j < TAILLEGRILLE)
 				{
-					if ((j == 0)||(j == TAILLEGRILLE -1))
+					if ((j == 0) || (j == TAILLEGRILLE - 1))
 					{
 						this.grille[i][j] = MUR;
 					}
 					else
 					{
 						if ((j != abs) && (i != ord))
-							this.grille[i][j]= CASE_VIDE;
+							this.grille[i][j] = CASE_VIDE;
 						else
-							this.grille[i][j]= PASTILLE;
+							this.grille[i][j] = PASTILLE;
 					}
 					j++;
 				}
 			}
 			i++;
 		}
-			
+
 	}
-	
-	
-	// FIXME il faudrait modifier l'implémentation de toString pour qu'elle retourne une représentation en ascii-art de la grille
+
+	// FIXME il faudrait modifier l'implémentation de toString pour qu'elle retourne une représentation en ascii-art de
+	// la grille
 	@Override
 	public String toString()
 	{
 		String res = "";
-		int i = 0 ;
+		int i = 0;
 		int j;
 		while (i < TAILLEGRILLE)
 		{
-			j=0;
+			j = 0;
 			while (j < TAILLEGRILLE)
 			{
 				if (this.grille[i][j] == 0)
@@ -135,11 +128,9 @@ public class Environnement
 			res = res + "\n";
 			i++;
 		}
-		
+
 		return res;
 	}
 
-
-
-	// FIXME autres méthodes ? 
+	// FIXME autres méthodes ?
 }

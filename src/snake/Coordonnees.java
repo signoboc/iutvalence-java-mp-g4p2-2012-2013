@@ -1,19 +1,19 @@
 package snake;
+
 // FIXME déplacer dans un paquetage (FIXED)
 
-
 /**
- *  Classe : Coordonnées (couple abscisse/ordonnee)
+ * Classe : Coordonnées (couple abscisse/ordonnee)
  * 
- * abscisse : Abscisse d'un point dans le plan
- * ordonnee : Ordonnée d'un point dans le plan
+ * abscisse : Abscisse d'un point dans le plan ordonnee : Ordonnée d'un point dans le plan
  * 
- * Ces coordonnées seront utilisées pour les positions du serpent et de la pastille. 
+ * Ces coordonnées seront utilisées pour les positions du serpent et de la pastille.
+ * 
  * @author berardk
- *
+ * 
  */
 public class Coordonnees
-{  
+{
 	/**
 	 * Désigne l'abscisse d'un point dans le plan
 	 */
@@ -23,15 +23,15 @@ public class Coordonnees
 	 * Désigne l'ordonnée d'un point dans le plan
 	 */
 	private final int ordonnee;
-	
-	
+
 	// FIXME corriger le commentaire (indiquer dans quel état est l'objet créé)
 	/**
 	 * Coordonnées d'un point dans le plan
+	 * 
 	 * @param abscisse
-	 * 				Abscisse d'un point dans le plan
+	 *            Abscisse d'un point dans le plan
 	 * @param ordonnee
-	 * 				Ordonnée d'un point dans le plan
+	 *            Ordonnée d'un point dans le plan
 	 */
 	public Coordonnees(int abscisse, int ordonnee)
 	{
@@ -42,6 +42,7 @@ public class Coordonnees
 
 	/**
 	 * Permet d'accéder à l'abscisse du point n'importe où dans l'application
+	 * 
 	 * @return abscisse du point
 	 */
 	public int getAbscisse()
@@ -49,17 +50,15 @@ public class Coordonnees
 		return this.abscisse;
 	}
 
-
 	/**
 	 * Permet d'accéder à l'ordonnée du point n'importe où dans l'application
+	 * 
 	 * @return ordonnee du point
 	 */
 	public int getOrdonnee()
 	{
 		return this.ordonnee;
 	}
-
-
 
 	@Override
 	public int hashCode()
@@ -71,11 +70,10 @@ public class Coordonnees
 		return result;
 	}
 
-
 	/**
-	 * Redéfinition de equals pour comparer des coordonnées.
-	 * 		Deux coordonnées sont égales si les deux abscisses et les deux ordonnées
-	 * 		sont égales.
+	 * Redéfinition de equals pour comparer des coordonnées. Deux coordonnées sont égales si les deux abscisses et les
+	 * deux ordonnées sont égales.
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -85,7 +83,7 @@ public class Coordonnees
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof Coordonnees)) 
+		if (!(obj instanceof Coordonnees))
 			return false;
 		Coordonnees other = (Coordonnees) obj;
 		if (this.abscisse != other.abscisse)
@@ -98,8 +96,6 @@ public class Coordonnees
 	{
 		return "Coordonnees [abscisse=" + this.abscisse + ", ordonnee=" + this.ordonnee + "]";
 	}
-
-
 
 	// FIXME écrire une application de test basique pour cette classe (dans une autre classe)
 }
