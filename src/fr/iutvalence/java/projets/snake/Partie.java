@@ -1,5 +1,5 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)
-package snake;
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)(FIXED)
+package fr.iutvalence.java.projets.snake;
 
 /**
  * Classe : Partie Classe principale de l'application : Gère la gestion des autres classes, génère la partie de jeu.

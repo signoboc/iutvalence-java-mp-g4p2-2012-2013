@@ -1,5 +1,5 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)
-package snake;
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)(FIXED)
+package fr.iutvalence.java.projets.snake;
 
 import java.util.Random;
 
@@ -16,30 +16,6 @@ public class Environnement
 	 * Désigne une valeur de la taille du terrain de jeu.
 	 */
 	public final static int TAILLEGRILLE = 20;
-
-	
-	// FIXME définir les constantes suivantes via une énumération (à discuter)
-	/**
-	 * Constante : Symbolise une case vide sur le terrain.
-	 */
-	public final static int CASE_VIDE = 0;
-	/**
-	 * Constante : Symbolise un mur sur le terrain.
-	 */
-	public final static int MUR = 8;
-	/**
-	 * Constante : Symbolise la pastille sur le terrain.
-	 */
-	public final static int PASTILLE = 2;
-	/**
-	 * Constante : Symbolise la tête du serpent sur le terrain.
-	 */
-	public final static int TETE = 5;
-	/**
-	 * Constante : Symbolise le corps du serpent sur le terrain.
-	 */
-	public final static int CORPS = 6;
-
 	/**
 	 * Désigne la position de la pastille
 	 */
@@ -48,7 +24,7 @@ public class Environnement
 	/**
 	 * Désigne le tableau qui sera le terrain de jeu. Une grille contient un serpent et une pastille.
 	 */
-	private int[][] grille;
+	private Case[][] grille;
 
 	/**
 	 * Constructeur de l'environnement de jeu Initialise le terrain avec une pastille positionnée aléatoirement (grâce à
@@ -57,10 +33,10 @@ public class Environnement
 	public Environnement()
 	{
 		super();
-		int abs = new Random().nextInt(TAILLEGRILLE + 1);
-		int ord = new Random().nextInt(TAILLEGRILLE + 1);
+		int abs = (new Random().nextInt(TAILLEGRILLE - 2)) + 1;
+		int ord = (new Random().nextInt(TAILLEGRILLE - 2)) + 1;
 		this.positionPastille = new Coordonnees(abs, ord);
-		this.grille = new int[TAILLEGRILLE][TAILLEGRILLE];
+		this.grille = new Case[TAILLEGRILLE][TAILLEGRILLE];
 		int i = 0;
 		int j;
 		while (i < TAILLEGRILLE)
@@ -68,9 +44,9 @@ public class Environnement
 			j = 0;
 			if ((i == 0) || (i == TAILLEGRILLE - 1))
 			{
-				while (j < TAILLEGRILLE)
+				while (j < TAILLEGRILLE) 
 				{
-					this.grille[i][j] = MUR;
+					this.grille[i][j] = Case.MUR; //on met un mur sur la première et la dernière ligne
 					j++;
 				}
 				j = 0;
@@ -81,14 +57,14 @@ public class Environnement
 				{
 					if ((j == 0) || (j == TAILLEGRILLE - 1))
 					{
-						this.grille[i][j] = MUR;
+						this.grille[i][j] = Case.MUR; //on met un mur dans la première et la dernière colonne
 					}
 					else
 					{
-						if ((j != abs) && (i != ord))
-							this.grille[i][j] = CASE_VIDE;
+						if ((j != abs) || (i != ord))
+							this.grille[i][j] = Case.VIDE; 
 						else
-							this.grille[i][j] = PASTILLE;
+							this.grille[i][j] = Case.PASTILLE; //traitement du cas particulier où la case contient la pastille
 					}
 					j++;
 				}
@@ -109,18 +85,18 @@ public class Environnement
 			j = 0;
 			while (j < TAILLEGRILLE)
 			{
-				// FIXME utiliser les constantes
-				if (this.grille[i][j] == 0)
+				// FIXME utiliser les constantes (FIXED)
+				if (this.grille[i][j] == Case.VIDE)
 				{
-					res = res + "-";
+					res = res + "--";
 				}
-				if (this.grille[i][j] == 8)
+				if (this.grille[i][j] == Case.MUR)
 				{
-					res = res + "#";
+					res = res + "##";
 				}
-				if (this.grille[i][j] == 2)
+				if (this.grille[i][j] == Case.PASTILLE)
 				{
-					res = res + "P";
+					res = res + "PP";
 				}
 				j++;
 			}
