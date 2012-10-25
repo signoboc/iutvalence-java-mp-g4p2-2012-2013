@@ -14,7 +14,7 @@ import fr.iutvalence.java.projets.snake.Environnement;
 public class TestEnvironnement
 {
 	/**
-	 * @param args
+	 * @param args : Chaîne de caractères symbolisant le terrain.
 	 */
 	public static void main(String[] args)
 	{
