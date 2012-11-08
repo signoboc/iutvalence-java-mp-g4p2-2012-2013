@@ -1,6 +1,8 @@
 // FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)(FIXED)
 package fr.iutvalence.java.projets.snake;
 
+import java.util.Arrays;
+
 
 /**
  * Classe Serpent Désigne le serpent qui représente le personnage principal du jeu.
@@ -15,8 +17,12 @@ public class Serpent
 	 */
 	// FIXME renommer la constante (longueur par défaut) (FIXED)
 	public final static int LONGUEUR_INIT = 4;
+	/**
+	 * Longueur maximale du serpent
+	 */
+	public final static int LONGUEUR_MAX = 60;
 
-	// FIXME est-ce que ces 2 attributs suffisent pour placer entièrement le serpent sur un repère ?
+	// FIXME est-ce que ces 2 attributs suffisent pour placer entièrement le serpent sur un repère ? (FIXED)
 	
 	/**
 	 * Nombre d'éléments qui constituent le serpent
@@ -27,6 +33,11 @@ public class Serpent
 	 * Tableau contenant les positions des éléments du serpent
 	 */
 	private Coordonnees[] position;
+	
+	/**
+	 * Désigne la direction de la tête du serpent
+	 */
+	private Direction direction;
 
 	/**
 	 * Initialise le serpent avec une position et une longueur par défaut.
@@ -35,7 +46,8 @@ public class Serpent
 	{
 		super();
 		this.longueur = LONGUEUR_INIT;
-		this.position = new Coordonnees[this.longueur];
+		this.position = new Coordonnees[LONGUEUR_MAX];
+		this.direction = Direction.DROITE;
 		int i=0;
 		while (i<this.longueur)
 		{
@@ -54,9 +66,33 @@ public class Serpent
 	{
 		super();
 		this.longueur = longueur;
-		this.position = new Coordonnees[this.longueur];
-		
+		this.position = new Coordonnees[LONGUEUR_MAX];
+		int i=0;
+		while (i<this.longueur)
+		{
+			this.position[i]= new Coordonnees(Environnement.TAILLEGRILLE/2,Environnement.TAILLEGRILLE/2  - i);
+			i++;
+		}
+	}
+
+	@Override
+	public String toString()
+	{
+		String res = "";
+		res = res + "Serpent :\nLongueur = " + this.longueur + "\nDirection = " + this.direction + "\nPosition :\n";
+	    int i = 0;
+	    while (i<this.longueur)
+	    	{
+	    		if (i == 0)
+	    			res = res + "(tête) ";
+	    		else
+	    			res = res + "(corps) ";
+	    		res = res + (i+1) + " : " + this.position[i] + "\n";
+	    		i++;
+	    	}
+		return res;
 	}
 
 	// FIXME méthodes ?
+	
 }
