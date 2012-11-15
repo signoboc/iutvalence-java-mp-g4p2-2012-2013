@@ -1,4 +1,3 @@
-// FIXME déplacer dans un paquetage différent de celui des classes du jeu  (FIXED)
 package fr.iutvalence.java.projets.tests;
 
 import fr.iutvalence.java.projets.snake.Environnement;
@@ -10,7 +9,6 @@ import fr.iutvalence.java.projets.snake.Environnement;
  * de test affiche cette chaine. 
  * @author berardk
  */
-// FIXME écrire un commentaire (dire ce que l'on veut tester et comment on s'y prend) (FIXED)
 public class TestEnvironnement
 {
 	/**
