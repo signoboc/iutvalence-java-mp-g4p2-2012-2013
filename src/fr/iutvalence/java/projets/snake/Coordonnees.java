@@ -1,4 +1,3 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)(FIXED)
 package fr.iutvalence.java.projets.snake;
 
 

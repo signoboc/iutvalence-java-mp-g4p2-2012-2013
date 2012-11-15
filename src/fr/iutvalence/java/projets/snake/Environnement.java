@@ -1,4 +1,3 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)(FIXED)
 package fr.iutvalence.java.projets.snake;
 
 import java.util.Random;
@@ -16,6 +15,7 @@ public class Environnement
 	 * Désigne une valeur de la taille du terrain de jeu.
 	 */
 	public final static int TAILLEGRILLE = 20;
+	
 	/**
 	 * Désigne la position de la pastille
 	 */
@@ -85,7 +85,6 @@ public class Environnement
 			j = 0;
 			while (j < TAILLEGRILLE)
 			{
-				// FIXME utiliser les constantes (FIXED)
 				if (this.grille[i][j] == Case.VIDE)
 				{
 					res = res + "--";

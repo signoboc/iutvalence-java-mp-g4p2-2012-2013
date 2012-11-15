@@ -1,7 +1,5 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.snake)(FIXED)
 package fr.iutvalence.java.projets.snake;
 
-import java.util.Arrays;
 
 
 /**
@@ -15,20 +13,18 @@ public class Serpent
 	/**
 	 * Longueur initiale (nombre d'éléments) par défaut du serpent.
 	 */
-	// FIXME renommer la constante (longueur par défaut) (FIXED)
 	public final static int LONGUEUR_INIT = 4;
 	/**
 	 * Longueur maximale du serpent
 	 */
 	public final static int LONGUEUR_MAX = 60;
-
-	// FIXME est-ce que ces 2 attributs suffisent pour placer entièrement le serpent sur un repère ? (FIXED)
 	
 	/**
 	 * Nombre d'éléments qui constituent le serpent
 	 */
 	private int longueur;
 	
+	// FIXME préciser le commentaire (à discuter)
 	/**
 	 * Tableau contenant les positions des éléments du serpent
 	 */
