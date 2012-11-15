@@ -14,12 +14,12 @@ public class Coordonnees
 	/**
 	 * Désigne l'abscisse d'un point dans le plan
 	 */
-	private final int abscisse;
+	private int abscisse;
 
 	/**
 	 * Désigne l'ordonnée d'un point dans le plan
 	 */
-	private final int ordonnee;
+	private int ordonnee;
 
 	// FIXME corriger le commentaire (indiquer dans quel état est l'objet créé)
 	/**
@@ -56,7 +56,26 @@ public class Coordonnees
 	{
 		return this.ordonnee;
 	}
+	
+	/**
+	 * Permet de changer la valeur de l'abscisse d'un point.
+	 * @param abscisse : abscisse du point.
+	 */
+	public void setAbscisse(int abscisse)
+	{
+		this.abscisse = abscisse;
+	}
 
+	/**
+	 * Permet de changer la valeur de l'ordonnée d'un point.
+	 * @param ordonnee : ordonnée du point.
+	 */
+	public void setOrdonnee(int ordonnee)
+	{
+		this.ordonnee = ordonnee;
+	}
+
+	
 	@Override
 	public int hashCode()
 	{

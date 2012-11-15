@@ -74,6 +74,111 @@ public class Serpent
 			i++;
 		}
 	}
+	
+	/**
+	 * Oriente la tête du serpent vers le haut
+	 */
+	public void OrienterHaut()
+	{
+		this.direction = Direction.HAUT;
+	}
+	
+	/**
+	 * Oriente la tête du serpent vers le bas
+	 */
+	public void OrienterBas()
+	{
+		this.direction = Direction.BAS;
+	}
+	
+	/**
+	 * Oriente la tête du serpent vers la gauche
+	 */
+	public void OrienterGauche()
+	{
+		this.direction = Direction.GAUCHE;
+	}
+	
+	/**
+	 * Oriente la tête du serpent vers la droite
+	 */
+	public void OrienterDroite()
+	{
+		this.direction = Direction.DROITE;
+	}
+	
+	/**
+	 * Fonction qui gère les déplacements suivant les différentes directions du serpent.
+	 */
+	public void DeplacerSerpent()
+	{
+		int i = 0 ;
+		int abspos ;
+		int ordpos;
+		
+		// Pour déplacer le serpent vers le haut
+		if (this.direction == Direction.HAUT)
+		{
+			abspos = this.position[i].getAbscisse();
+			ordpos = this.position[i].getOrdonnee();
+			this.position[i].setAbscisse(abspos -1);
+			i++;
+			while (i<this.longueur)
+			{
+				this.position[i].setAbscisse(abspos);
+				this.position[i].setOrdonnee(ordpos);
+				abspos++;
+				ordpos++;
+			}
+		}
+		// Pour déplacer le serpent vers le bas
+		if (this.direction == Direction.BAS)
+		{
+			abspos = this.position[i].getAbscisse();
+			ordpos = this.position[i].getOrdonnee();
+			this.position[i].setAbscisse(abspos +1);
+			i++;
+			while (i<this.longueur)
+			{
+				this.position[i].setAbscisse(abspos);
+				this.position[i].setOrdonnee(ordpos);
+				abspos++;
+				ordpos++;
+			}
+		}
+		
+		// Pour déplacer le serpent vers la gauche
+		if (this.direction == Direction.GAUCHE)
+		{
+			abspos = this.position[i].getAbscisse();
+			ordpos = this.position[i].getOrdonnee();
+			this.position[i].setAbscisse(ordpos -1);
+			i++;
+			while (i<this.longueur)
+			{
+				this.position[i].setAbscisse(abspos);
+				this.position[i].setOrdonnee(ordpos);
+				abspos++;
+				ordpos++;
+			}
+		}
+		
+		// Pour déplacer le serpent vers la droite
+		if (this.direction == Direction.DROITE)
+		{
+			abspos = this.position[i].getAbscisse();
+			ordpos = this.position[i].getOrdonnee();
+			this.position[i].setAbscisse(ordpos +1);
+			i++;
+			while (i<this.longueur)
+			{
+				this.position[i].setAbscisse(abspos);
+				this.position[i].setOrdonnee(ordpos);
+				abspos++;
+				ordpos++;
+			}
+		}
+	}
 
 	@Override
 	public String toString()
