@@ -73,6 +73,66 @@ public class Environnement
 		}
 
 	}
+	
+	/**
+	 * Constructeur de l'environnement avec les coordonnées de la nouvelle pastille données.
+	 * @param nouvellepastille : Couple de coordonnées de la nouvelle pastille.
+	 */
+	public Environnement(Coordonnees nouvellepastille)
+	{
+		super();
+		this.positionPastille = nouvellepastille;
+		int abs = nouvellepastille.getAbscisse();
+		int ord = nouvellepastille.getOrdonnee();
+		this.grille = new Case[TAILLEGRILLE][TAILLEGRILLE];
+		int i = 0;
+		int j;
+		while (i < TAILLEGRILLE)
+		{
+			j = 0;
+			if ((i == 0) || (i == TAILLEGRILLE - 1))
+			{
+				while (j < TAILLEGRILLE) 
+				{
+					this.grille[i][j] = Case.MUR; //on met un mur sur la première et la dernière ligne
+					j++;
+				}
+				j = 0;
+			}
+			else
+			{
+				while (j < TAILLEGRILLE)
+				{
+					if ((j == 0) || (j == TAILLEGRILLE - 1))
+					{
+						this.grille[i][j] = Case.MUR; //on met un mur dans la première et la dernière colonne
+					}
+					else
+					{
+						if ((j != abs) || (i != ord))
+							this.grille[i][j] = Case.VIDE; 
+						else
+							this.grille[i][j] = Case.PASTILLE; //traitement du cas particulier où la case contient la pastille
+					}
+					j++;
+				}
+			}
+			i++;
+		}
+
+	}
+	
+	/**
+	 * Méthode pour générer une pastille aux coordonnées aléatoires.
+	 * @return : Couple de coordonnées de la nouvelle pastille.
+	 */
+	public Coordonnees genererNouvellePastille()
+	{
+		int abs = (new Random().nextInt(TAILLEGRILLE - 2)) + 1;
+		int ord = (new Random().nextInt(TAILLEGRILLE - 2)) + 1;
+		this.positionPastille = new Coordonnees(abs, ord);
+		return this.positionPastille;
+	}
 
 	@Override
 	public String toString()

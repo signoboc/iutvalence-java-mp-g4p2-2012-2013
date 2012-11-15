@@ -17,5 +17,18 @@ public class Partie
 	 */
 	private int scoreJoueur;
 
+	/**
+	 * Constructeur de la partie.
+	 */
+	public Partie()
+	{
+		super();
+		Environnement map = new Environnement();
+		Serpent snake = new Serpent();
+	}
+	
+	
+	
+	
 	// FIXME (autres) attributs, constructeurs, méthodes ?
 }

@@ -111,6 +111,8 @@ public class Serpent
 		int i = 0 ;
 		int abspos ;
 		int ordpos;
+		int absprecedent;
+		int ordprecedent;
 		
 		// Pour déplacer le serpent vers le haut
 		if (this.direction == Direction.HAUT)
@@ -121,10 +123,13 @@ public class Serpent
 			i++;
 			while (i<this.longueur)
 			{
+				absprecedent = this.position[i].getAbscisse();
+				ordprecedent = this.position[i].getOrdonnee();
 				this.position[i].setAbscisse(abspos);
 				this.position[i].setOrdonnee(ordpos);
-				abspos++;
-				ordpos++;
+				i++;
+				abspos = absprecedent;
+				ordpos = ordprecedent;
 			}
 		}
 		// Pour déplacer le serpent vers le bas
@@ -136,10 +141,13 @@ public class Serpent
 			i++;
 			while (i<this.longueur)
 			{
+				absprecedent = this.position[i].getAbscisse();
+				ordprecedent = this.position[i].getOrdonnee();
 				this.position[i].setAbscisse(abspos);
 				this.position[i].setOrdonnee(ordpos);
-				abspos++;
-				ordpos++;
+				i++;
+				abspos = absprecedent;
+				ordpos = ordprecedent;
 			}
 		}
 		
@@ -148,14 +156,17 @@ public class Serpent
 		{
 			abspos = this.position[i].getAbscisse();
 			ordpos = this.position[i].getOrdonnee();
-			this.position[i].setAbscisse(ordpos -1);
+			this.position[i].setOrdonnee(ordpos -1);
 			i++;
 			while (i<this.longueur)
 			{
+				absprecedent = this.position[i].getAbscisse();
+				ordprecedent = this.position[i].getOrdonnee();
 				this.position[i].setAbscisse(abspos);
 				this.position[i].setOrdonnee(ordpos);
-				abspos++;
-				ordpos++;
+				i++;
+				abspos = absprecedent;
+				ordpos = ordprecedent;
 			}
 		}
 		
@@ -164,14 +175,17 @@ public class Serpent
 		{
 			abspos = this.position[i].getAbscisse();
 			ordpos = this.position[i].getOrdonnee();
-			this.position[i].setAbscisse(ordpos +1);
+			this.position[i].setOrdonnee(ordpos +1);
 			i++;
 			while (i<this.longueur)
 			{
+				absprecedent = this.position[i].getAbscisse();
+				ordprecedent = this.position[i].getOrdonnee();
 				this.position[i].setAbscisse(abspos);
 				this.position[i].setOrdonnee(ordpos);
-				abspos++;
-				ordpos++;
+				i++;
+				abspos = absprecedent;
+				ordpos = ordprecedent;
 			}
 		}
 	}
@@ -179,6 +193,17 @@ public class Serpent
 	@Override
 	public String toString()
 	{
+		this.DeplacerSerpent();
+		this.DeplacerSerpent();
+		this.OrienterBas();
+		this.DeplacerSerpent();
+		this.DeplacerSerpent();
+		this.OrienterGauche();
+		this.DeplacerSerpent();
+		this.DeplacerSerpent();
+		this.OrienterHaut();
+		this.DeplacerSerpent();
+		
 		String res = "";
 		res = res + "Serpent :\nLongueur = " + this.longueur + "\nDirection = " + this.direction + "\nPosition :\n";
 	    int i = 0;
@@ -191,6 +216,8 @@ public class Serpent
 	    		res = res + (i+1) + " : " + this.position[i] + "\n";
 	    		i++;
 	    	}
+	  
+	    
 		return res;
 	}
 
