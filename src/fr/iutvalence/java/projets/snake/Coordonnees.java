@@ -20,7 +20,7 @@ public class Coordonnees
 	 */
 	private int ordonnee;
 
-	// FIXME corriger le commentaire (indiquer dans quel état est l'objet créé) (FIXED)
+	// FIXME corriger le commentaire (indiquer dans quel état est l'objet créé)
 	/**
 	 * Coordonnées d'un point dans le plan
 	 * -> Crée un couple d'entiers
