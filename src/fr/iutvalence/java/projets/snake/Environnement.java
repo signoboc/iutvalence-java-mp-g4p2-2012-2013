@@ -133,7 +133,31 @@ public class Environnement
 		this.positionPastille = new Coordonnees(abs, ord);
 		return this.positionPastille;
 	}
-
+	
+	
+	/**
+	 * Méthode qui permet de placer le serpent sur le terrain à l'aide de son tableau de positions.
+	 * @param snake : serpent à placer sur la map
+	 */
+	public void placerSerpent(Serpent snake)
+	{
+		int i = 1;
+		int abs;
+		int ord;
+		int longueur = snake.getLongueur();
+		Coordonnees[] position = snake.getPosition();
+		this.grille[position[0].getAbscisse()][position[0].getOrdonnee()] = Case.TETE;
+		while (i < longueur )
+		{
+			abs = position[i].getAbscisse();
+			ord = position[i].getOrdonnee();
+			this.grille[abs][ord] = Case.CORPS;
+			i++;
+		}
+	}
+	
+	
+	
 	@Override
 	public String toString()
 	{
@@ -156,6 +180,14 @@ public class Environnement
 				if (this.grille[i][j] == Case.PASTILLE)
 				{
 					res = res + "PP";
+				}
+				if (this.grille[i][j] == Case.TETE)
+				{
+					res = res + "TT";
+				}
+				if (this.grille[i][j] == Case.CORPS)
+				{
+					res = res + "cc";
 				}
 				j++;
 			}

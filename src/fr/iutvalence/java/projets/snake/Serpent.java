@@ -63,6 +63,7 @@ public class Serpent
 		super();
 		this.longueur = longueur;
 		this.position = new Coordonnees[LONGUEUR_MAX];
+		this.direction = Direction.DROITE;
 		int i=0;
 		while (i<this.longueur)
 		{
@@ -71,6 +72,35 @@ public class Serpent
 		}
 	}
 	
+	/**
+	 * Méthode d'accès à la longueur du serpent.
+	 * @return longueur du serpent
+	 */
+	public int getLongueur()
+	{
+		return this.longueur;
+	}
+	
+	
+	
+	/**
+	 * Méthode permettant de modifier la valeur de la longueur du serpent.
+	 * @param longueur : longueur du serpent
+	 */
+	public void setLongueur(int longueur)
+	{
+		this.longueur = longueur;
+	}
+
+	/**
+	 * Méthode d'accès au tableau de positions du serpent.
+	 * @return : Tableau de positions
+	 */
+	public Coordonnees[] getPosition()
+	{
+		return this.position;
+	}
+
 	/**
 	 * Oriente la tête du serpent vers le haut
 	 */
@@ -131,6 +161,7 @@ public class Serpent
 				abspos = absprecedent;
 				ordpos = ordprecedent;
 			}
+			
 		}
 		// Pour déplacer le serpent vers le bas
 		if (this.direction == Direction.BAS)
@@ -189,6 +220,7 @@ public class Serpent
 			}
 		}
 	}
+	
 
 	@Override
 	public String toString()
