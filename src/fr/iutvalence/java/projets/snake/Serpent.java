@@ -47,7 +47,7 @@ public class Serpent
 		int i=0;
 		while (i<this.longueur)
 		{
-			this.position[i]= new Coordonnees(Environnement.TAILLEGRILLE/2,Environnement.TAILLEGRILLE/2  - i);
+			this.position[i]= new Coordonnees(Environnement.TAILLEGRILLE/2,Environnement.TAILLEGRILLE/2 -i);
 			i++;
 		}
 	}

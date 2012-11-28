@@ -21,10 +21,16 @@ public class TestPartie
 	
 	public static void main(String[] args) throws InterruptedException
 	{
+		int absPast;
+		int ordPast;
+		int absTete;
+		int ordTete;
+		
 		Environnement map = new Environnement();
 		Coordonnees pastille = map.genererNouvellePastille();
-		int absPast = pastille.getAbscisse();
-		int ordPast = pastille.getOrdonnee();
+		pastille.setAbscisse(14);
+		pastille.setOrdonnee(10);
+
 		map = new Environnement(pastille);
 		Serpent snake = new Serpent() ;
 		while(true)
@@ -32,10 +38,12 @@ public class TestPartie
 			Thread.sleep(500);
 			snake.DeplacerSerpent();
 			
-			// Récupération des coordonnées de la tête:
+			// Récupération des coordonnées de la tête et de la pastille:
 			Coordonnees[] positionTete = snake.getPosition();
-			int absTete = positionTete[0].getAbscisse();
-			int ordTete = positionTete[0].getOrdonnee();
+			absTete = positionTete[0].getAbscisse();
+			ordTete = positionTete[0].getOrdonnee();
+			absPast = pastille.getAbscisse();
+			ordPast = pastille.getOrdonnee();
 			
 			// Comparaison de coordonnées de la tête et des murs:
 			if ((absTete == 0) || (absTete == Environnement.TAILLEGRILLE -1) || (ordTete == 0) || (ordTete == Environnement.TAILLEGRILLE -1))
@@ -43,7 +51,7 @@ public class TestPartie
 				System.out.print(gameOver);
 				break;
 			}
-			if ((absTete == absPast ) && (ordTete == ordPast))
+			if ( (absTete == absPast ) && (ordTete == ordPast))
 			{
 				//Incrémentation de la longueur du serpent.
 				int longSerp = snake.getLongueur();
@@ -54,6 +62,7 @@ public class TestPartie
 				
 				
 				//Générer une nouvelle pastille (dans la variable pastille).
+				pastille = map.genererNouvellePastille();
 			}
 			map = new Environnement(pastille);
 			map.placerSerpent(snake);
