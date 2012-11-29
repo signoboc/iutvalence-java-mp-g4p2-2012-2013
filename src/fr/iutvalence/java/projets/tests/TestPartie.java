@@ -1,5 +1,8 @@
 package fr.iutvalence.java.projets.tests;
 
+import java.util.Random;
+
+import fr.iutvalence.java.projets.snake.Case;
 import fr.iutvalence.java.projets.snake.Environnement;
 import fr.iutvalence.java.projets.snake.Serpent;
 import fr.iutvalence.java.projets.snake.Coordonnees;
@@ -11,6 +14,11 @@ import fr.iutvalence.java.projets.snake.Coordonnees;
 public class TestPartie
 {
 
+	/**
+	 * Désigne la position de la pastille
+	 */
+	private Coordonnees positionPastille;
+	
 	/**
 	 * Affiche la map avec le serpent.
 	 * @param args : chaine de caractères symbolisant la map et le serpent
@@ -27,11 +35,8 @@ public class TestPartie
 		int ordTete;
 		
 		Environnement map = new Environnement();
-		Coordonnees pastille = map.genererNouvellePastille();
-		pastille.setAbscisse(14);
-		pastille.setOrdonnee(10);
-
-		map = new Environnement(pastille);
+		Coordonnees pastille = new Coordonnees(15,10);
+		map = new Environnement();
 		Serpent snake = new Serpent() ;
 		while(true)
 		{
@@ -62,13 +67,46 @@ public class TestPartie
 				
 				
 				//Générer une nouvelle pastille (dans la variable pastille).
-				pastille = map.genererNouvellePastille();
+				pastille = genererNouvellePastille();
 			}
-			map = new Environnement(pastille);
-			map.placerSerpent(snake);
 			System.out.println(map);
 			
 		}
 	}
 
+	
+	/**
+	 * Méthode pour générer une pastille aux coordonnées aléatoires.
+	 * @return : Couple de coordonnées de la nouvelle pastille.
+	 */
+	public Coordonnees genererNouvellePastille()
+	{
+		int abs = (new Random().nextInt(Environnement.TAILLEGRILLE - 2)) + 1;
+		int ord = (new Random().nextInt(Environnement.TAILLEGRILLE - 2)) + 1;
+		this.positionPastille = new Coordonnees(abs, ord);
+		return this.positionPastille;
+	}
+	
+	/**
+	 * Méthode qui permet de placer le serpent sur le terrain à l'aide de son tableau de positions.
+	 * @param snake : serpent à placer sur la map
+	 */
+	public Environnement placerSerpent(Serpent snake, Environnement map)
+	{
+		int i = 1;
+		Case[][] grille = map.getGrille();
+		int abs;
+		int ord;
+		int longueur = snake.getLongueur();
+		Coordonnees[] position = snake.getPosition();
+		grille[position[0].getAbscisse()][position[0].getOrdonnee()] = Case.TETE;
+		while (i < longueur )
+		{
+			abs = position[i].getAbscisse();
+			ord = position[i].getOrdonnee();
+			grille[abs][ord] = Case.CORPS;
+			i++;
+		}
+		return map;
+	}
 }
