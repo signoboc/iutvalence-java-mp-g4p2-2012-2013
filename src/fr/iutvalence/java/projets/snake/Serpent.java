@@ -1,5 +1,7 @@
 package fr.iutvalence.java.projets.snake;
 
+import java.util.Random;
+
 
 
 /**
@@ -99,6 +101,26 @@ public class Serpent
 	public Coordonnees[] getPosition()
 	{
 		return this.position;
+	}
+
+
+	/**
+	 * Méthode d'accés à la direction du serpent.
+	 * @return : La direction du serpent.
+	 */
+	public Direction getDirection()
+	{
+		return this.direction;
+	}
+
+	/**
+	 * Permet d'insérer un élément dans le tableau de position du serpent.
+	 * @param positionQueue : Position du dernier élément du serpent.
+	 * @param i : Indice dans lequel l'élément se situe.
+	 */
+	public void setPosition(Coordonnees[] positionQueue)
+	{
+		this.position = positionQueue;
 	}
 
 	/**
@@ -221,20 +243,34 @@ public class Serpent
 		}
 	}
 	
+	/**
+	 * Méthode permettant de gérer un déplacement aléatoire du serpent
+	 * Plus l'intervalle du nombre aléatoire est grand, plus petite sera la fréquence
+	 * de changement d'orientation du serpent.
+	 */
+	public void orientationAlea ()
+	{
+		int orientation = new Random().nextInt(4);
+		if ((this.direction == Direction.HAUT) || (this.direction == Direction.BAS))
+		{
+			if (orientation == 2)
+				this.direction = Direction.GAUCHE;
+			if (orientation == 3)
+				this.direction = Direction.DROITE;
+		}
+		if ((this.direction == Direction.GAUCHE) || (this.direction == Direction.DROITE))
+		{
+			if (orientation == 0)
+				this.direction = Direction.HAUT;
+			if (orientation == 1)
+				this.direction = Direction.BAS;
+		}
+	}
+	
 
 	@Override
 	public String toString()
 	{
-		this.DeplacerSerpent();
-		this.DeplacerSerpent();
-		this.OrienterBas();
-		this.DeplacerSerpent();
-		this.DeplacerSerpent();
-		this.OrienterGauche();
-		this.DeplacerSerpent();
-		this.DeplacerSerpent();
-		this.OrienterHaut();
-		this.DeplacerSerpent();
 		
 		String res = "";
 		res = res + "Serpent :\nLongueur = " + this.longueur + "\nDirection = " + this.direction + "\nPosition :\n";
