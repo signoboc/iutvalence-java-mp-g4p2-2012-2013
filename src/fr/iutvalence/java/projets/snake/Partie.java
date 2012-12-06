@@ -9,12 +9,22 @@ import java.awt.event.*;
  * 
  * @author berardk
  */
-public class Partie
+public class Partie implements Controle
 {
 	/**
 	 * Désigne la position de la pastille.
 	 */
 	private Coordonnees positionPastille;
+	
+	/**
+	 * Interface d'affichage.
+	 */
+	private Aff a;
+	
+	/**
+	 * Interface de gestion des touches.
+	 */
+	private Controle c;
 	
 	/**
 	 * Désigne le nom du joueur.
@@ -43,14 +53,19 @@ public class Partie
 	
 	/**
 	 * Constructeur de la partie.
+	 * @param a : Interface d'affichage.
 	 */	
-	public Partie()
+	public Partie(Aff a, Controle c)
 	{
 		super();
 		
 		// Initialisation de la partie : On met un serpent sur une map.
 		this.map = new Environnement();
-		this.snake = new Serpent(6);
+		this.snake = new Serpent(10);
+		this.scoreJoueur = 0;
+		this.nomJoueur = "Joueur";
+		this.a = a;
+		this.c = c;
 		placerSerpent(this.snake, this.map);
 		
 		//Gestion et placement de la pastille :
@@ -59,6 +74,16 @@ public class Partie
 		
 	}
 	
+	public int getScoreJoueur()
+	{
+		return scoreJoueur;
+	}
+
+
+	public void setScoreJoueur(int scoreJoueur)
+	{
+		this.scoreJoueur = scoreJoueur;
+	}
 	
 	/**
 	 * @param pastille : pastille que l'on veut placer sur la map.
@@ -120,38 +145,24 @@ public class Partie
 		return this.positionPastille;
 	}
 	
-	//GESTION DU CLAVIER
 	
-    /**
-     * Méthode qui va gérer les évenements du clavier
-     * @param event : Evenement : touche appuyée.
-     */
-    public void orienterSerpent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.VK_RIGHT)
-        {
-        	// touche flèche droite
-        	if ((this.snake.getDirection() == Direction.HAUT) || (this.snake.getDirection() == Direction.BAS))
-        		this.snake.OrienterDroite();
-        }
-        else if (event.getKeyCode() == KeyEvent.VK_LEFT)
-        {
-        	// touche flèche gauche
-        	if ((this.snake.getDirection() == Direction.HAUT) || (this.snake.getDirection() == Direction.BAS))
-        		this.snake.OrienterGauche();
-        }
-        else if (event.getKeyCode() == KeyEvent.VK_UP)
-        {
-        	// touche flèche haut
-        	if ((this.snake.getDirection() == Direction.GAUCHE) || (this.snake.getDirection() == Direction.DROITE))
-        		this.snake.OrienterHaut();
-        }
-        else if (event.getKeyCode() == KeyEvent.VK_DOWN)
-        {
-        	// touche flèche bas
-        	if ((this.snake.getDirection() == Direction.GAUCHE) || (this.snake.getDirection() == Direction.DROITE))
-        		this.snake.OrienterBas();
-        }
-  }
+	// GESTION DU CLAVIER
+	/**
+	 * Méthode qui va gérer les évenements du clavier
+	 * @param e : Evenement, touche appuyée.
+	 */
+	public void orienterSerpent ( Direction dir)
+	{
+	    	// touche flèche droite
+	    if ((this.snake.getDirection() == Direction.HAUT) || (this.snake.getDirection() == Direction.BAS))
+	    	this.snake.OrienterDroite();
+	    else if ((this.snake.getDirection() == Direction.HAUT) || (this.snake.getDirection() == Direction.BAS))
+	    	this.snake.OrienterGauche();
+	    else if ((this.snake.getDirection() == Direction.GAUCHE) || (this.snake.getDirection() == Direction.DROITE))
+	    	this.snake.OrienterHaut();
+	    else if ((this.snake.getDirection() == Direction.GAUCHE) || (this.snake.getDirection() == Direction.DROITE))
+	    	this.snake.OrienterBas();
+	}
 
 
 	/**
@@ -161,8 +172,8 @@ public class Partie
 	public void demarrer() throws InterruptedException
 	{
 		Case contenu = Case.VIDE;
-		
 		Coordonnees pastille;
+		int score = 0;
 		
 		// Positions du serpent avant et après déplacement
 		Coordonnees[] positionSerpent;
@@ -172,34 +183,37 @@ public class Partie
 		int absqueue, ordqueue;
 		
 		int longueurSerpent = 0;
-		int i,j;
+		int longueurSerpentpre = 0;
+		int i;
 		while(true)
 		{
-			Thread.sleep(200);
+			Thread.sleep(600);
 			
 			// On sauvegarde des éléments de l'ancien serpent qui serviront à l'allongement
 			// du serpent et à la réinitialisation du terrain:
 			positionSerpentpre = this.snake.getPosition();
 			longueurSerpent = this.snake.getLongueur();
+			longueurSerpentpre = this.snake.getLongueur();
 			absqueue = positionSerpentpre[longueurSerpent - 1].getAbscisse();
 			ordqueue = positionSerpentpre[longueurSerpent - 1].getOrdonnee();
+			
 			// Réinitialisation du tableau : On efface le serpent précédent.			
-			j=0;
-			while (j < longueurSerpent)
-			{
-				try
-				{
-					this.map.setCaseAt(positionSerpentpre[j], Case.VIDE);
-				}
-				catch (CoordonneesInvalideException e)
-				{
-					// Nothing !
-				}
-				j++;
-			}
+						i=0;
+						while (i < longueurSerpentpre)
+						{
+							try
+							{
+								this.map.setCaseAt(positionSerpentpre[i], Case.VIDE);
+							}
+							catch (CoordonneesInvalideException e)
+							{
+								// Nothing !
+							}
+							i++;
+						}
 			
 			// Après initialisation, on déplace le serpent.
-			this.snake.orientationAlea();
+			//this.snake.orientationAlea();
 			this.snake.DeplacerSerpent();
 			positionSerpent = this.snake.getPosition();
 			try
@@ -221,17 +235,17 @@ public class Partie
 			}
 			
 			// Comparaison de coordonnées de la tête et du corps:
-		/**	i=2;
-			while ( i < longueurSerpent + 1)
+			i=1;
+			while ( i < longueurSerpent )
 			{
-				if (!(positionSerpent.equals(positionSerpentpre[i])))
+				if (positionSerpent[0] == positionSerpentpre[i])
 				{
 					System.out.print(gameOver);
 					break;
 				}
 				i++;
 			}
-		**/	
+			
 			// Comparaison de coordonnées de la tête et de la pastille:
 			if (contenu == Case.PASTILLE)
 			{
@@ -250,6 +264,12 @@ public class Partie
 				
 				//MAJ map avec la nouvelle pastille.
 				this.placerPastille(pastille, this.map);
+				
+				//Incrémentation du score
+				score = getScoreJoueur();
+				score++;
+				this.setScoreJoueur(score);
+				
 			}
 						
 			// Placement du serpent dans la map après déplacement :
@@ -279,11 +299,15 @@ public class Partie
 				i++;
 			}
 			//System.out.println(this.snake);
-			System.out.println(this.map);
-			
+			//System.out.println(this.map);
+			//res = "\nNom : " + this.nomJoueur + " Score : " + this.scoreJoueur;
+			//System.out.println(res);
+			this.a.afficheMap(this.map);
+			this.a.afficheJoueurEtScore(this.nomJoueur, this.scoreJoueur);
 		}
 		
 	}
+
 	
 	// FIXME (autres) attributs, constructeurs, méthodes ?
 }
