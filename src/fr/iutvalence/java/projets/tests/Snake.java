@@ -19,8 +19,8 @@ public class Snake
 	public static void main(String[] args) throws InterruptedException
 	{
 		Aff a = new AffConsole();
-		Controle c = new GestionClavier();
-		Partie p = new Partie(a,c);
+		//Controle c = new GestionClavier();
+		Partie p = new Partie(a);
 		p.demarrer();
 	}
 

@@ -32,7 +32,7 @@ public class GestionClavier implements KeyListener
 	{
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 	    {
-			return Direction.DROITE;
+			Controle.orienterSerpent(Direction.DROITE);
 	    }
 	    else if (e.getKeyCode() == KeyEvent.VK_LEFT)
 	    {

@@ -24,7 +24,7 @@ public class Partie implements Controle
 	/**
 	 * Interface de gestion des touches.
 	 */
-	private Controle c;
+	//private Controle c;
 	
 	/**
 	 * Désigne le nom du joueur.
@@ -55,7 +55,7 @@ public class Partie implements Controle
 	 * Constructeur de la partie.
 	 * @param a : Interface d'affichage.
 	 */	
-	public Partie(Aff a, Controle c)
+	public Partie(Aff a)
 	{
 		super();
 		
@@ -65,7 +65,7 @@ public class Partie implements Controle
 		this.scoreJoueur = 0;
 		this.nomJoueur = "Joueur";
 		this.a = a;
-		this.c = c;
+		//this.c = c;
 		placerSerpent(this.snake, this.map);
 		
 		//Gestion et placement de la pastille :
@@ -187,7 +187,7 @@ public class Partie implements Controle
 		int i;
 		while(true)
 		{
-			Thread.sleep(600);
+			Thread.sleep(200);
 			
 			// On sauvegarde des éléments de l'ancien serpent qui serviront à l'allongement
 			// du serpent et à la réinitialisation du terrain:
@@ -213,7 +213,7 @@ public class Partie implements Controle
 						}
 			
 			// Après initialisation, on déplace le serpent.
-			//this.snake.orientationAlea();
+			this.snake.orientationAlea();
 			this.snake.DeplacerSerpent();
 			positionSerpent = this.snake.getPosition();
 			try
@@ -298,10 +298,6 @@ public class Partie implements Controle
 				}
 				i++;
 			}
-			//System.out.println(this.snake);
-			//System.out.println(this.map);
-			//res = "\nNom : " + this.nomJoueur + " Score : " + this.scoreJoueur;
-			//System.out.println(res);
 			this.a.afficheMap(this.map);
 			this.a.afficheJoueurEtScore(this.nomJoueur, this.scoreJoueur);
 		}

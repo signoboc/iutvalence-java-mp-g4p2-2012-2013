@@ -15,6 +15,6 @@ public class AffConsole implements Aff
 	
 	public void afficheJoueurEtScore ( String nom, int score)
 	{
-		System.out.println ( "\nNom : " + nom + " Score : " + score );
+		System.out.println ( "Nom : " + nom + " Score : " + score );
 	}
 }
